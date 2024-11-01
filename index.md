@@ -4,11 +4,11 @@ layout: default
 
 Text can be **bold**, _italic_, or ~~strikethrough~~.
 
-[Link to another page](./another-page.html).
+[Thanks to BAE for giving me a chance.](https://www.baesystems.com/en/home).
 
 # Preface
 
-Why **Vulnerability Management**? Well, simply put, it coalesces three of things I enjoy most about cybersecurity: **operating**, **analyzing**, and **engineering**. 
+Why **Vulnerability Management**? Well, simply put, it coalesces three of the things I enjoy most about cybersecurity: **operating**, **analyzing**, and **engineering**. 
 
 ## Header 2
 
