@@ -24,88 +24,19 @@ So I'm going to leverage PowerShell's native _#requires_ feature to require pwsh
 #requires -version 5.1
 #requires -runasadministrator
 ```
+TODO: Maybe come back and revisit a simple CIM obj / WMI query for Windows numeric release version, since Tenable Nessus only officially supports Windows 10 and greater.
 
-#### Header 4
+Now with that, there are some more necessary bits we have to sort out. And this is where the fork in the road comes in...
 
-*   This is an unordered list following a header.
-*   This is an unordered list following a header.
-*   This is an unordered list following a header.
+#### The Prereqs
 
-##### Header 5
+*   Windows security policies
+*   Local computer policies (for example, Deny access to this computer from the network, Access this computer from the network)
+*   Antivirus or endpoint security rules
+*   IPS/IDS
 
-1.  This is an ordered list following a header.
-2.  This is an ordered list following a header.
-3.  This is an ordered list following a header.
+To avoid too many complications, I'm going to break the rest of the script block into a function that will be driven by an if condition. This pretty much follows what was SOP for my last gig:
 
-###### Header 6
-
-| head1        | head two          | three |
-|:-------------|:------------------|:------|
-| ok           | good swedish fish | nice  |
-| out of stock | good and plenty   | nice  |
-| ok           | good `oreos`      | hmm   |
-| ok           | good `zoute` drop | yumm  |
-
-### There's a horizontal rule below this.
-
-* * *
-
-### Here is an unordered list:
-
-*   Item foo
-*   Item bar
-*   Item baz
-*   Item zip
-
-### And an ordered list:
-
-1.  Item one
-1.  Item two
-1.  Item three
-1.  Item four
-
-### And a nested list:
-
-- level 1 item
-  - level 2 item
-  - level 2 item
-    - level 3 item
-    - level 3 item
-- level 1 item
-  - level 2 item
-  - level 2 item
-  - level 2 item
-- level 1 item
-  - level 2 item
-  - level 2 item
-- level 1 item
-
-### Small image
-
-![Octocat](https://github.githubassets.com/images/icons/emoji/octocat.png)
-
-### Large image
-
-![Branching](https://guides.github.com/activities/hello-world/branching.png)
-
-
-### Definition lists can be used with HTML syntax.
-
-<dl>
-<dt>Name</dt>
-<dd>Godzilla</dd>
-<dt>Born</dt>
-<dd>1952</dd>
-<dt>Birthplace</dt>
-<dd>Japan</dd>
-<dt>Color</dt>
-<dd>Green</dd>
-</dl>
-
-```
-Long, single-line code blocks should not wrap. They should horizontally scroll if they are too long. This line should be long enough to demonstrate this.
-```
-
-```
-The final element.
-```
+1.  The sysads run the org's .wim.
+2.  The vuln analyists scan and stig.
+3.  Then, the req floodgates open.
