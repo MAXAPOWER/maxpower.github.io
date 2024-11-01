@@ -4,17 +4,15 @@ layout: default
 
 Text can be **bold**, _italic_, or ~~strikethrough~~.
 
-[Thanks to BAE for giving me a chance.](https://www.baesystems.com/en/home).
+[Thanks to BAE for giving me a chance.](https://www.baesystems.com/en/home)
 
 # Preface
 
 Why **Vulnerability Management**? Well, simply put, it coalesces three of the things I enjoy most about cybersecurity: **operating**, **analyzing**, and **engineering**. 
 
-## Header 2
+## Shell Begin[ing]s
 
-> This is a blockquote following a header.
->
-> When something is important enough, you do it even if the odds are not in your favor.
+> It's not who I am underneath; it's what I do that defines me.
 
 ### Header 3
 
