@@ -17,19 +17,9 @@ Why **Vulnerability Management**? Well, simply put, it coalesces three of the th
 Tenable denotes:
 ![Note](https://github.com/MAXAPOWER/maxpower.github.io/blob/e871f81e671794ef5c6e5bb6ed358d2165694781/tenable%20note.png)
 
-```js
-// Javascript code with syntax highlighting.
-var fun = function lang(l) {
-  dateformat.i18n = require('./lang/' + l)
-  return true;
-}
-```
-
-```ruby
-# Ruby code with syntax highlighting
-GitHubPages::Dependencies.gems.each do |gem, version|
-  s.add_dependency(gem, "= #{version}")
-end
+```powershell
+#requires -version 5.1
+#requires -runasadministrator
 ```
 
 #### Header 4
