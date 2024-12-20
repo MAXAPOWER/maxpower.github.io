@@ -37,7 +37,14 @@ So I'm going to leverage PowerShell's native _#requires_ feature to require pwsh
 #requires -runasadministrator
 ```
 
-Now with that, there's maybe a not-so-necessary preference I like to sort out. Since I'm often moving pwsh code/cmdlets from local guest VM to instance, or local ISE to VS Code, or Code to pipeline
+Now with that, there's maybe a not-so-necessary preference I like to sort out. Since I'm often moving pwsh code/cmdlets from local guest VM to instance, or local ISE to VS Code, or Code to pipeline, I like to have my own staple alias for _Write-Host_ to be _*Print*_, since my first scripting language was Python. I'll have:
+
+```powershell
+# set preferred alias for 'write-host'
+New-Alias -Name 'Print' -Value Write-Host -Description 'quick write-host alias' -Option ReadOnly -Force
+```
+
+After reading thru much of Microsoft Learn,  
 
 #### The Prereqs
 
