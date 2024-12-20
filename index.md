@@ -44,7 +44,14 @@ Now with that, there's maybe a not-so-necessary preference I like to sort out. S
 New-Alias -Name 'Print' -Value Write-Host -Description 'quick write-host alias' -Option ReadOnly -Force
 ```
 
-After reading thru much of Microsoft Learn,  
+After reading thru much of Microsoft Learn, I've found what we want to access, is the _Win32_Service_ WMI class, and more specifically, select the pathname prop. And based on our Nessus finding, we're really only interested in the unquoted svc paths, so we'll use a where query for anything that doesn't match '"'. We'll pipe that altogether, and get something like this:
+
+```powershell
+# set var to hold svc paths (need to include '-expandproperty' param in order to retain original $obj props)
+$svcPaths = gwmi win32_service | select -ExpandProperty pathname | where {$_ -notmatch '"'}
+```
+
+
 
 #### The Prereqs
 
