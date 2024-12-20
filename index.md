@@ -2,7 +2,7 @@
 layout: default
 ---
 
-[Thanks to BAE for giving me a chance.](https://www.baesystems.com/en/home)
+[Thanks to Mad Hat for starting me up.](https://www.youtube.com/@madhatistaken)
 
 # Preface
 
@@ -12,11 +12,11 @@ Why **Vulnerability Management**? Well, simply put, it coalesces three of the th
 
 > It's not who I am underneath; it's what I _do_ that defines me.
 
-### Tenable Nessus Guidance
+### Tenable Nessus Report
 
-Following along Tenable Nessus's guide to [Credentialed Checks on Windows](https://docs.tenable.com/nessus/Content/CredentialedChecksOnWindows.htm), the first note reads:
+Tenable Nessus's Plugin ID 63155, titled [Microsoft Windows Unquoted Service Path Enumeration](https://www.tenable.com/plugins/nessus/63155), neatly gives the 'tl;dr' upfront:
 
-![Note](https://github.com/MAXAPOWER/maxpower.github.io/blob/e871f81e671794ef5c6e5bb6ed358d2165694781/tenable%20note.png)
+![Synopsis](https://github.com/MAXAPOWER/maxpower.github.io/blob/main/nessus%20synopsis.png)
 
 So I'm going to leverage PowerShell's native _#requires_ feature to require pwsh v5.1 (I know Tenable says 5.0, but I'm stipulating 5.1 since Win10 ships with it by default) as the minimum required WMF version. I'm also going to add a second _#requires_ statement with the arg _-runasadministrator_, to follow the advice of a few good sysads (namely to prevent accidental execution by a user, if the scope of the execpol is messed around with). 
 
