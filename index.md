@@ -44,14 +44,20 @@ Now with that, there's maybe a not-so-necessary preference I like to sort out. S
 New-Alias -Name 'Print' -Value Write-Host -Description 'quick write-host alias' -Option ReadOnly -Force
 ```
 
-After reading thru much of Microsoft Learn, I've found what we want to access, is the _Win32_Service_ WMI class, and more specifically, select the pathname prop. And based on our Nessus finding, we're really only interested in the unquoted svc paths, so we'll use a where query for anything that doesn't match '"'. We'll pipe that altogether, and get something like this:
+After reading thru much of Microsoft Learn, I've found what we want to access, is the _Win32_Service_ WMI class, and more specifically, select the pathname prop. And based on our Nessus finding, we're really only interested in the unquoted svc paths, so we'll use a where query for anything that doesn't match '"'. We'll pipe that altogether, set it to var $svcPaths, and get something like this:
 
 ```powershell
 # set var to hold svc paths (need to include '-expandproperty' param in order to retain original $obj props)
 $svcPaths = gwmi win32_service | select -ExpandProperty pathname | where {$_ -notmatch '"'}
 ```
 
+Next is to index each $path within a for loop, where each iterated $path grep'd, split, modified, then concat'd again. But let's set the braces and define the for loop, then set an if condition to perform regex on the enumerated svc paths. Here, I'm kean on grabbing only the true binpath that the svc gets called from, and not the extraneous flags/params/switches that are ajoined at the end (but we'll still want to store those). So the regex will wildcard from the start of the char set, up until '.exe', then wildcard from the end of '.exe' to the end of the string. Something like this:
 
+```powershell
+foreach ($path in $svcPaths) {
+    # regex to help grep paths that point to a legitimate .exe
+    if ($path -match '^(.*?\.exe)(.*)$') {
+```
 
 #### The Prereqs
 
